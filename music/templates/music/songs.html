@@ -1,0 +1,89 @@
+{% extends 'music/base.html' %}
+{% block title %}All Songs{% endblock %}
+{% block songs_active %}active{% endblock %}
+{% load staticfiles %}
+{% block style %}
+<style>
+    th,tbody{
+        color:greenyellow;
+        font-size:19px;
+    }
+th{
+    color: #00a1d2;
+}
+</style>{% endblock %}
+{% block body %}
+
+<div class="container-fluid songs-container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                <li role="presentation" class="active"><a href="{% url 'music:songs' 'all' %}">View All</a></li>
+                <li role="presentation" {% if filter_by == 'favorites' %}class="active"{% endif %}><a href="{% url 'music:songs' 'favorites' %}">Favorites</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-12">
+
+            <div class="panel panel-default" style="opacity: 0.9">
+                <div class="panel-body" style="background: rgba(6, 4, 11, 0.71)">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Song Title</th>
+                                <th>Artist</th>
+                                <th>play</th>
+                                <th>Album</th>
+                                <th>Favorite</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for song in song_list %}
+                                <tr>
+                                    <td>{{ song.song_title }}</td>
+                                    <td>{{ song.album.artist }}</td>
+                                    <td>
+                                        <img src="{% static 'music/icons/play-2-01.png' %}">
+
+
+    <!-- Insert to your webpage where you want to display the audio player
+            <div id="amazingaudioplayer-1" style="display:block;position:relative;width:300px;height:auto;margin:0px auto 0px;">
+                  <ul class="amazingaudioplayer-audios" style="display:none;">
+            <li data-artist="{{song.album.artist }}" data-title="{{ song.song_title }}" data-album="{{ song.album.album_title }}" data-info="" data-image="{{ song.album.album_art.url }}" data-duration="">
+                <div class="amazingaudioplayer-source" data-src="{{ song.audio_file.url }}" data-type="audio/mp3" ></div>
+            </li>
+           <li data-artist="lml" data-title="All Songs" data-album="mllm" data-info="" data-image="C:\Users\omosh\Documents\amaz/audios/9d6377a81ba4a85fe6f5bee5f318ff28.1000x1000x1.jpg" data-duration="198">
+                <div class="amazingaudioplayer-source" data-src="C:\Users\omosh\Documents\amaz/audios/All Songs.mp3" data-type="audio/mpeg" />
+            </li>
+        </ul>
+        <div class="amazingaudioplayer-engine"><a href="http://amazingaudioplayer.com" title="html5 audio player">jquery audio player</a></div>-->
+
+                                    </td>
+
+
+                                    <td>
+                                        <a href="{% url 'music:detail' song.album.id %}">
+                                            <img src="{{ song.album.album_art.url }}" class="img-responsive" style="width: 80px; float: left; margin-right: 10px;" />
+                                        </a>
+                                        <a href="{% url 'music:detail' song.album.id %}">{{ song.album.album_title }}</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'music:favorite' song.id %}" class="btn-favorite"><span class="glyphicon glyphicon-star {% if song.is_favorite %}active{% endif %}"></span></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>-->
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'music/base.html' %}
+{% block title %}Add a New Album{% endblock %}
+{% block albums_active %}active{% endblock %}
+{% load staticfiles %}
+
+{% block body %}
+
+    <div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-sm-12 col-md-7  " >
+
+            <div class="panel panel-default" style="opacity: 0.6">
+                <div class="panel-body" style="background: bisque" >
+
+                    <h3 style="font-family:Verdana;font-size: 40px">Add Album</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+                        {% include 'music/form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Add</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>{% block title %}Viberr{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/png" href="{%  static 'music/icons/favicon.ico' %}"/>
+    <link rel="stylesheet" href="{% static 'music/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'music/font-awesome/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}"/>
+      <link rel="stylesheet" type="text/css" href="{% static 'music/css/animcss.css' %}"/>
+
+
+<link id="plan-theme" href="https://thevideo.me/css/thevideo/bootstrap.belizehole.min.css?v=0.0602001" rel="stylesheet">
+
+<script src="https://thevideo.me/js/thevideo/plugins/jquery/jquery-2.2.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="{% static 'music/js/main.js' %}"></script>
+  <script src="{% static 'music/js/vi.js' %}"></script>
+{% block style %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-inverse ">
+    <div class="container-fluid">
+
+        <!-- Header -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href=""><img src="{% static 'music/icons/brand.png' %}"></a>
+        </div>
+
+        <!-- Items -->
+        <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class="btn-group navbar-group">
+                <li class="{% block albums_active %}{% endblock %}"><a href="{% url 'music:index' %}"><span class="glyphicon glyphicon-cloud-upload"style="font-size: 20px" aria-hidden="true"></span>&nbsp; </a></li>
+
+            </ul>
+        <div class="btn-group navbar-group navbar-right" role="group" aria-label="loginRegister" style="margin-top:13px;">
+
+            <a class="btn btn-primary" type="button" href="{% url 'music:login_user' %}"> login</a>
+            <a class="btn btn-danger" type="button" href="{% url 'music:register' %}">Sign Up</a>
+
+            </div>
+            <ul class="nav navbar-nav">
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+{% block body %}
+{% endblock %}
+</body>
+</html>
