@@ -20,7 +20,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="{% static 'music/js/main.js' %}"></script>
-  <script src="{% static 'music/js/vi.js' %}"></script>
+
 {% block style %}{% endblock %}
 </head>
 <body>
@@ -34,7 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href=""><img src="{% static 'music/icons/brand.png' %}"></a>
+            <a class="navbar-brand" href="{% url 'music:index' %}"><img src="{% static 'music/icons/brand.png' %}"></a>
         </div>
 
         <!-- Items -->

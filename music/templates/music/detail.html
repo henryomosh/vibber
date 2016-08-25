@@ -45,7 +45,7 @@ th{
             <div class="panel panel-default"style="opacity: 0.9" >
                 <div class="panel-body"style="background: rgba(6, 4, 11, 0.71)">
 
-                    <h3 style="color: #00a1d2";>All Songs</h3>
+                    <h1 style="color: #d21cc5" ;>{{ album.album_title }}'s Songs</h1>
 
                     {% if error_message %}
                         <p><strong>{{ error_message }}</strong></p>
@@ -56,11 +56,12 @@ th{
                         <tr>
                             <th>Title</th>
                             <th>Download</th>
-                            <th>Play</th>
+                            <th>Add To Playlist</th>
                             <th>Favorite</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
+
                         <tbody>
                         {% for song in album.song_set.all %}
 
@@ -71,11 +72,7 @@ th{
                                     <a href="{{ song.audio_file.url }}" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-download">&nbsp;Download</span> </a>
                                 </td>
                                 <td>
-                                    <audio controls>
-                                        <source src="{% static 'music/audios/All Songs.mp3' %}" type="mp3">
-                                        <source src="{{% static 'music/audios/All Songs.mp3' %}" type="mp3">
-                                    </audio>
-
+                                    <a href="{% url 'music:playlist' song.id%}" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus {% if song.is_playlist %}active{% endif %}"></span></a>
                                 </td>
                                 <td>
                                     <a href="{% url 'music:favorite' song.id %}" class="btn-favorite"><span class="glyphicon glyphicon-star {% if song.is_favorite %}active{% endif %}"></span></a>

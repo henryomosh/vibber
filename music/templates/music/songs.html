@@ -47,7 +47,20 @@ th{
                                     <td>{{ song.song_title }}</td>
                                     <td>{{ song.album.artist }}</td>
                                     <td>
-                                        <img src="{% static 'music/icons/play-2-01.png' %}">
+                                        <script>
+                                            $(document).ready(function () {
+                                                $("#img2").hide();
+                                                $("#btn").click(function () {
+                                                    $("#img").hide(function () {
+                                                        $("#img2").show();
+                                                        
+                                                    });
+
+                                                });
+                                            });
+                                        </script>
+                                     <button id="btn" type="button"> <img id="img"  src="{% static 'music/icons/play-2-01.png' %}"> <img id="img2" src="{% static 'music/icons/favicon.ico' %}"> </button>
+
 
 
     <!-- Insert to your webpage where you want to display the audio player
@@ -72,7 +85,7 @@ th{
                                         <a href="{% url 'music:detail' song.album.id %}">{{ song.album.album_title }}</a>
                                     </td>
                                     <td>
-                                        <a href="{% url 'music:favorite' song.id %}" class="btn-favorite"><span class="glyphicon glyphicon-star {% if song.is_favorite %}active{% endif %}"></span></a>
+                                        <a href="{% url 'music:favorite' song.id %}" class="btn-favorite "><span class="glyphicon glyphicon-star {% if song.is_favorite %}active{% endif %}"></span></a>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -84,6 +97,8 @@ th{
         </div>
 
     </div>
-
-</div>-->
+<div id="me">
+    <p>audio</p>
+</div>
+</div>
 {% endblock %}

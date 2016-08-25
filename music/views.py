@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from .forms import AlbumForm, SongForm, UserForm
-from .models import Album, Song,Paper
+from .models import Album, Song, Paper
 
 AUDIO_FILE_TYPES = ['wav', 'mp3', 'ogg']
 IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
@@ -37,7 +37,6 @@ def create_album(request):
 
 
 def create_song(request, album_id):
-
     form = SongForm(request.POST or None, request.FILES or None)
     album = get_object_or_404(Album, pk=album_id)
     if form.is_valid():
@@ -156,8 +155,7 @@ def logout_user(request):
     return render(request, 'music/lg.html', context)
 
 
-def login_user(request,):
-
+def login_user(request, ):
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
@@ -204,6 +202,7 @@ def songs(request, filter_by):
                 for song in album.song_set.all():
                     song_ids.append(song.pk)
             users_songs = Song.objects.filter(pk__in=song_ids)
+
             if filter_by == 'favorites':
                 users_songs = users_songs.filter(is_favorite=True)
         except Album.DoesNotExist:
@@ -214,6 +213,34 @@ def songs(request, filter_by):
         })
 
 
-def lg (request,paper_id):
-    loggo=get_object_or_404(Paper,pk=paper_id)
-    return render(request,'music/lg.html',{'loggo':loggo,})
+def playlist_add(request, playlist_id):
+    song = get_object_or_404(Song, pk=playlist_id)
+    try:
+        if song.playlist:
+            song.playlist = False
+        else:
+            song.playlist = True
+        song.save()
+    except (KeyError, Song.DoesNotExist):
+        return JsonResponse({'success': False})
+    else:
+        return JsonResponse({'success': True})
+def playlist(request, playlist_id):
+    if not request.user.is_authenticated():
+        return render(request, 'music/login.html')
+    else:
+        try:
+            song_ids = []
+            for album in Album.objects.filter(user=request.user):
+                for song in album.song_set.all():
+                    song_ids.append(song.pk)
+            users_songs = Song.objects.filter(pk__in=song_ids)
+
+            if playlist_id == 'playlists':
+                    users_songs = users_songs.filter(playlist=True)
+        except Album.DoesNotExist:
+               users_songs = []
+        return render(request, 'music/playlist.html', {
+            'song_list': users_songs,
+            'playlist': playlist_id,
+        })

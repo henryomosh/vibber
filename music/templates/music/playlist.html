@@ -1,0 +1,99 @@
+{% extends 'music/base.html' %}
+{% load staticfiles %}
+{% block title %}My Playlist{% endblock %}
+{% block style %}
+<style>
+    th,tbody{
+        color:greenyellow;
+        font-size:19px;
+    }
+th{
+    color: #00a1d2;
+}
+</style>{% endblock %}
+{% block body %}
+
+<div class="container-fluid songs-container">
+
+    <div class="row">
+            <div class="col-sm-6 col-md-4">
+            <div class="panel ">
+                <div class="panel-body">
+                    <a href="#">
+                        <img src="{% static 'music/icons/music-album_318-43305.jpg' %}" class="img-responsive" style="width: 600px; ">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+
+            <div class="panel panel-default" style="opacity: 0.9">
+                <div class="panel-body" style="background: rgba(6, 4, 11, 0.71)">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Song</th>
+                                <th>Artist</th>
+                                <th>Album</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            {% for song in song_list %}
+                                <tr>
+                                    <td>{{ song.song_title }}</td>
+                                    <td>{{ song.album.artist }}</td>
+                                    <!--<td>
+                                        <script>
+                                            $(document).ready(function () {
+                                                $("#img2").hide();
+                                                $("#btn").click(function () {
+                                                    $("#img").hide(function () {
+                                                        $("#img2").show();
+
+                                                    });
+
+                                                });
+                                            });
+                                        </script>
+                                     <button id="btn" type="button"> <img id="img"  src="{% static 'music/icons/play-2-01.png' %}"> <img id="img2" src="{% static 'music/icons/favicon.ico' %}"> </button>
+
+
+
+    Insert to your webpage where you want to display the audio player
+            <div id="amazingaudioplayer-1" style="display:block;position:relative;width:300px;height:auto;margin:0px auto 0px;">
+                  <ul class="amazingaudioplayer-audios" style="display:none;">
+            <li data-artist="{{song.album.artist }}" data-title="{{ song.song_title }}" data-album="{{ song.album.album_title }}" data-info="" data-image="{{ song.album.album_art.url }}" data-duration="">
+                <div class="amazingaudioplayer-source" data-src="{{ song.audio_file.url }}" data-type="audio/mp3" ></div>
+            </li>
+           <li data-artist="lml" data-title="All Songs" data-album="mllm" data-info="" data-image="C:\Users\omosh\Documents\amaz/audios/9d6377a81ba4a85fe6f5bee5f318ff28.1000x1000x1.jpg" data-duration="198">
+                <div class="amazingaudioplayer-source" data-src="C:\Users\omosh\Documents\amaz/audios/All Songs.mp3" data-type="audio/mpeg" />
+            </li>
+        </ul>
+        <div class="amazingaudioplayer-engine"><a href="http://amazingaudioplayer.com" title="html5 audio player">jquery audio player</a></div>
+
+                                    </td>-->
+
+
+                                    <td>
+                                        <a href="{% url 'music:detail' song.album.id %}">
+                                            <img src="{{ song.album.album_art.url }}" class="img-responsive" style="width: 50px; float: left; margin-right: 10px;" />
+                                            <h5>{{ song.album.album_title }}</h5>
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}
