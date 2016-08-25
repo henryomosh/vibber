@@ -1,12 +1,17 @@
 {% extends 'music/base.html' %}
 {% block albums_active %}active{% endblock %}
-
+{% load staticfiles %}
 {% block body %}
 <div class="albums-container container-fluid">
 
 
     <!-- Albums -->
     <div class="row">
+      <div class="col-sm-4 col-md-9 col-lg-12" >
+      <img src="{% static 'music/images/sound-waves.jpg' %}" style="width: 1300px;height: 400px ">
+
+      </div>
+       <!-- album info-->
         <div class="col-sm-12 col-lg-12">
             <h2 style="color: #750d7a">{{ user.username }}'s Albums</h2>
         <div>
