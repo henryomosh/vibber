@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="857fa9f0-695d-464b-ba2a-a4354e31b5b6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoProject2/apache/django.wsgi" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoProject2/settings/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoProject2/settings/base.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoProject2/settings/local.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoProject2/settings/production.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/djangoProject2/settings.py" afterPath="$PROJECT_DIR$/djangoProject2/settings_old.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/djangoProject2.iml" afterPath="$PROJECT_DIR$/.idea/djangoProject2.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/procfile" afterPath="$PROJECT_DIR$/procfile" />
-    </list>
+    <list default="true" id="857fa9f0-695d-464b-ba2a-a4354e31b5b6" name="Default" comment="" />
     <ignored path="djangoProject2.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -228,8 +217,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="9" />
-    <option name="y" value="64" />
+    <option name="x" value="197" />
+    <option name="y" value="384" />
     <option name="width" value="1370" />
     <option name="height" value="690" />
   </component>
@@ -702,7 +691,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="9" y="64" width="1370" height="690" extended-state="0" />
+    <frame x="197" y="384" width="1370" height="690" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22599705" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
