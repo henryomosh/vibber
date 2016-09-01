@@ -99,8 +99,8 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD':'rackcity',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'HOST': '',
+        'PORT':'',
     }
 }
 # Password validation
