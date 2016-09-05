@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="{% static 'music/css/bootstrap.min.css' %}">
      <link rel="stylesheet" href="{% static 'music/playerfiles/initaudioplayer-1.css' %}">
 <link rel="stylesheet" href="{% static 'music/css/styless.css' %}">
-
+<link id="plan-theme" href="https://thevideo.me/css/thevideo/bootstrap.belizehole.min.css?v=0.0602001" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}">
     <script src="{% static 'music/js/bootstrap.js' %}"></script>
-
+<link rel="stylesheet" href="{% static 'music/hovereffect.css' %}">
 <link id="plan-theme" href="{% static 'music/css/bootstrap.belizehole.min.css' %}" rel="stylesheet">
 
      <script src="{% static 'music/playerfiles/jquery.js' %}"></script>
@@ -51,13 +51,13 @@
             <ul class="nav navbar-nav navbar-right">
                 <li >
                     <a href="{% url 'music:playlist' 'playlist'%}">
-                        <span class="glyphicon glyphicon-play " style="font-size: 20px" aria-hidden="true"></span>&nbsp; Vibber Stream
+                        <span class="glyphicon glyphicon-play-circle " style="font-size: 20px" aria-hidden="true"></span>&nbsp; Vibber Stream
                     </a>
                 </li>
 
                 <li  role="presentation" {% if playlist == 'playlists' %}class="active"{% endif %}>
                     <a href="{% url 'music:playlist' 'playlist'%}">
-                        <span class="glyphicon glyphicon-play-circle " style="font-size: 20px" aria-hidden="true"></span>&nbsp; {{ user.username }}'s Playlist
+                        <span class="glyphicon glyphicon-headphones " style="font-size: 20px" aria-hidden="true"></span>&nbsp; {{ user.username }}'s Playlist
                     </a>
                 </li>
 

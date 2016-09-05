@@ -3,25 +3,63 @@
 {% load staticfiles %}
 {% block body %}
 <div class="albums-container container-fluid">
-
-
-    <!-- Albums -->
     <div class="row">
-      <div class="col-sm-4 col-md-9 col-lg-12" >
-      <img src="{% static 'music/images/sound-waves.jpg' %}" style="width: 1300px;height: 400px ">
+    <!--cousel-->
+    <div class="col-sm-12">
+      <div class="panel" style="background: black;opacity: 0.9">
+      <div class="panel-body">
+          <div class="col-sm-4">
+               <h1 style="color: whitesmoke">Featured Artist</h1>
+              <a href="https://en.wikipedia.org/wiki/Calvin_Harris"><img src="{% static 'music/images/calvin.jpg' %}" style="width:400px"></a>
+          </div>
+          <div class="col-sm-4">
+              <ul style="list-style: none">
+                  <li >
+                      <h1 style="color: #f5f2e2">Calvin Harris  <img src="{% static 'music/icons/cute_ball_favorites.png' %}" style="width: 30px"></h1>
+                  </li>
+                  <li>
+                      <h4 style="color: whitesmoke">calvin Harris</h4>
+                  </li>
+                  <li>
+                      <h4 style="color: whitesmoke">Damfries,Scotland</h4>
+                  </li>
+                  <li>
+                      <h4 ><img src="{% static 'music/images/wallpaper-1865190.jpg' %}" style="width: 300px"></h4>
+                  </li>
+              </ul>
+              </div>
+              <div class="col-sm-4">
+                 <ul style="list-style: none">
+                  <a href="https://www.youtube.com/watch?v=EgqUJOudrcM">
+                     <li >
+                      <h3 style="color: whitesmoke;text-decoration:underline " >CALVIN </h3>
+                  </li>
+                  <li>
+                      <h3 style="color: whitesmoke;text-decoration:underline "> HARRIS</h3>
+                  </li>
+                    <h3 style="color: whitesmoke">+</h3>
+                  <li>
+                      <h3 style="color: whitesmoke">DESCIPLES</h3>
+                  </li>
+                     </a>
+                   <a href="https://itunes.apple.com/us/album/how-deep-is-your-love-single/id1001677304" > <li>
+                      <h4 style="color: red">OUT NOW<img src="{% static 'music/images/apple-music-logo.png' %}" style="width: 200px"></h4>
+                  </li> </a>
+              </ul>
+              </div>
 
       </div>
-       <!-- album info-->
-        <div class="col-sm-12 col-lg-12">
-            <h2 style="color: #750d7a">{{ user.username }}'s Albums</h2>
-        <div>
-
-        </div>
-        </div>
-        {% if albums %}
+    </div>
+    </div>
+    <!--album info-->
+    <div class="col-sm-12">
+    <div class="panel" style="background: url('{% static 'music/images/tumblr_static_a7bfrhnd8e80os88sc80kc088.jpg' %}');opacity: 0.9">
+      <div class="panel-body">
+    {% if albums %}
+            <h3 style="color: whitesmoke" >{{ user.username }}'s Albums</h3>
             {% for album in albums %}
                 <div class="col-sm-4 col-lg-2">
-                    <div class="thumbnail">
+                    <div class="thumbnail" style="background: lightgrey">
                         <a href="{% url 'music:detail' album.id %}">
                             <img src="{{ album.album_art.url }}" class="img-responsive">
                         </a>
@@ -30,7 +68,7 @@
                             <h4>{{ album.artist }}</h4>
 
                             <!-- View Details -->
-                            <a href="{% url 'music:detail' album.id %}" class="btn btn-primary btn-sm" role="button">View</a>
+                            <a href="{% url 'music:detail' album.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
 
                             <!-- Delete Album -->
                             <form action="{% url 'music:delete_album' album.id %}" method="post" style="display: inline;">
@@ -51,7 +89,8 @@
                 </div>
                 {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
             {% endfor %}
-
+            {% else %}
+            <h1 style="color: white">No Albums click to add</h1>
             <div class="col-sm-12">
                 <br>
                 <a href="{% url 'music:create_album' %}">
@@ -60,9 +99,11 @@
                     </button>
                 </a>
             </div>
+
         {% endif %}
-
-
+     </div>
+      </div>
+    </div>
 
     <!-- If user searches and there are songs -->
     {% if songs %}
@@ -116,4 +157,5 @@
 {% endblock %}
 </div>
 
+</div>
 </div>

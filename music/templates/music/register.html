@@ -1,14 +1,17 @@
 {% extends 'music/base_visitor.html' %}
 {% block title %}Create Account{% endblock %}
 {% block register_active %}active{% endblock %}
-
+{% load staticfiles %}
 {% block body %}
 <div class="container-fluid">
 
     <div class="row">
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12 col-md-6" >
+
             <div class="panel panel-default"style="opacity: 0.9">
-                <div class="panel-body" style="background: rgba(6, 4, 11, 0.71)">
+
+                <div class="panel-body" >
+                <div class="col-sm-6 ">
                     <h2 style="color: #0F9E5E">Create an Account</h2>
                     {% if error_message %}
                         <p><strong>{{ error_message }}</strong></p>
@@ -22,15 +25,21 @@
                             </div>
                         </div>
                     </form>
+                 </div>
+                <div class="col-sm-4">
+                    <img src="{% static 'music/images/my_logoe.png' %}" style="width: 250px">
+                </div>
                 </div>
                 <div class="panel-footer">
                     Already have an account? <a href="{% url 'music:login_user' %}" style="color: #00a1d2">Click here</a> to log in.
                 </div>
             </div>
+          </div>
+
         </div>
     </div>
 
-</div>
+
 
 {% endblock %}
 
