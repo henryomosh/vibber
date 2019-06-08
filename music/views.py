@@ -244,3 +244,17 @@ def playlist(request, playlist_id):
             'song_list': users_songs,
             'playlist': playlist_id,
         })
+def clasics(request, clasics_id):
+    model= get_object_or_404 (artist,pk=model_id)
+    try:
+        if artist.player:
+            artist.player=False
+        else:
+            artist.player=True:
+        artist.save()
+        except(KeyError, artist.DoesNotExist):
+            return  JsonResponse({"Succeded": False})
+        else:
+            return JsonResponse({"Succeded":True})
+      
+         
