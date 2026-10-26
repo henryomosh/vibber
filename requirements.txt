@@ -47,7 +47,7 @@ sorl-url==0.2.1
 splinter==0.7.3
 stevedore==1.17.0
 stripe==1.36.0
-urllib3==1.16
+urllib3==1.26.5
 virtualenv==15.0.3
 virtualenv-clone==0.2.6
 virtualenvwrapper==4.7.1
